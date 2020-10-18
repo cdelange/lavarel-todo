@@ -22,7 +22,12 @@ Route::post('/task', function (Request $request) {
       ->withErrors($validator);
   }
 
-  // create the task
+  // create the task. incoming Task instance name is set to the input request validated task name then saved
+  $task = new Task;
+  $task->name = $request->name;
+  $task->save();
+
+  return redirect('/');
 });
 
 // Deletes existing task
