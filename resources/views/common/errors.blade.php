@@ -1,5 +1,3 @@
-// resources/views/common/errors.blade.php
-
 @if (count($errors) > 0)
   <!-- Form error list -->
   <div class="alert alert-danger">

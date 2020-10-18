@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Task;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 // Displays tasks
 
@@ -37,7 +39,7 @@ Route::post('/task', function (Request $request) {
 // Deletes existing task
 
 Route::delete('/task/{id}', function ($id){
-  Task::findofFail($id)->delete();
+  Task::findorFail($id)->delete();
 
   return redirect('/');
 });
