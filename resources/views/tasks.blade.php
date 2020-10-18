@@ -58,6 +58,12 @@
           </td>
           <td>
             <!-- delete button -->
+            <form action="/task/{{ $task->id }}" method="POST">
+              {{ csrf_field() }}
+              {{ method_field('DELETE') }}
+              <!-- method field renders this hidden: <input type="hidden" name="_method" value="DELETE"> -->
+              <button>Delete Task</button>
+            </form>
           </td>
         </tr>
         @endforeach

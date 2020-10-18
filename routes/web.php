@@ -37,5 +37,7 @@ Route::post('/task', function (Request $request) {
 // Deletes existing task
 
 Route::delete('/task/{id}', function ($id){
-  //
+  Task::findofFail($id)->delete();
+
+  return redirect('/');
 });
