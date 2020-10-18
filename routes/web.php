@@ -3,16 +3,22 @@
 use App\Models\Task;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 // Displays tasks
 
-Route::get('/', function () {
+Route::get('/', function ()
+{
     $tasks = Task::orderBy('created_at', 'asc')->get();
-
     return view('tasks', [
-      'tasks' => $tasks
-    ]);
+      'tasks' => $tasks]);
 });
+
+// Route::get('/tasks', function () {
+//     $user_id = auth()->user('id');
+//     $user = User::find($user_id);
+//     return view('tasks')->with('tasks',$user->tasks);
+// });
 
 
 // Adds new task
@@ -43,3 +49,10 @@ Route::delete('/task/{id}', function ($id){
 
   return redirect('/');
 });
+Auth::routes();
+
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
