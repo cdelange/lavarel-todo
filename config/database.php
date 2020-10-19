@@ -52,17 +52,16 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 mysql://bafd263ba9988f:0f31a536@us-cdbr-east-02.cleardb.com/heroku_f596d9194e1ce71?reconnect=true
-        'mysql' => [
-            'driver'    => 'mysql',
-            'host'      => $host,
-            'database'  => $database,
-            'username'  => $username,
-            'password'  => $password,
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-            ]) : [],
-        ],
+        'mysql' => array(
+        'driver'    => 'mysql',
+        'host'      => $host,
+        'database'  => $database,
+        'username'  => $username,
+        'password'  => $password,
+        'charset'   => 'utf8',
+        'collation' => 'utf8_unicode_ci',
+        'prefix'    => '',
+    ),
 
         'pgsql' => [
             'driver' => 'pgsql',
